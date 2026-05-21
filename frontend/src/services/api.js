@@ -5,7 +5,7 @@ import { useAuthStore } from '../store/authStore'
 
 // Tạo một "instance" (bản sao) của axios với cấu hình mặc định dùng chung cho mọi request
 const api = axios.create({
-  baseURL: '/api', // Base URL: Mọi request đều sẽ tự động nối thêm '/api'. Ví dụ gọi '/products' sẽ thành '/api/products'
+  baseURL: `${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api`, // Production: dùng VITE_API_URL (URL Render). Dev: fallback về localhost:5000
   headers: { 'Content-Type': 'application/json' }, // Mặc định báo cho Server biết đang gửi dữ liệu dạng JSON
   timeout: 15000, // Timeout: Nếu Server quá tải, không phản hồi sau 15 giây thì tự động hủy request
 })
