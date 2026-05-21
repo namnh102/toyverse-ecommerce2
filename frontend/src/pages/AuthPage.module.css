@@ -1,0 +1,52 @@
+/* AuthPage.module.css */
+.page {
+  min-height: calc(100vh - var(--navbar-h));
+  display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+  background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-lavender-light) 50%, var(--color-blue-light) 100%);
+  padding: var(--space-8);
+}
+.card {
+  width: 100%; max-width: 440px;
+  background: white; border-radius: var(--radius-2xl);
+  padding: var(--space-8); box-shadow: var(--shadow-xl);
+  border: 1px solid var(--color-border);
+  position: relative; z-index: 1;
+  animation: fadeInUp 0.4s ease;
+}
+.logoWrap { display: flex; align-items: center; gap: var(--space-3); justify-content: center; margin-bottom: var(--space-6); }
+.logoEmoji { font-size: 2.5rem; }
+.logoText { font-family: var(--font-display); font-size: 1.5rem; font-weight: var(--fw-black); }
+.logoText span:first-child { color: var(--color-text); }
+.logoAccent { color: var(--color-primary-dark); }
+.logoTagline { font-size: var(--text-xs); color: var(--color-text-muted); text-align: center; }
+.tabs { display: flex; background: var(--color-bg-soft); border-radius: var(--radius-full); padding: 4px; margin-bottom: var(--space-6); }
+.tab { flex: 1; padding: 10px; border-radius: var(--radius-full); background: none; border: none; cursor: pointer; font-family: var(--font-display); font-size: var(--text-sm); font-weight: var(--fw-semi); color: var(--color-text-muted); transition: all var(--transition-base); }
+.tabActive { background: white; color: var(--color-text); font-weight: var(--fw-bold); box-shadow: var(--shadow-sm); }
+.form { display: flex; flex-direction: column; gap: var(--space-4); }
+.inputError { border-color: var(--color-error) !important; }
+.submitBtn { margin-top: var(--space-2); }
+.divider { position: relative; text-align: center; margin: var(--space-4) 0; }
+.divider::before { content: ''; position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: var(--color-border); }
+.divider span { position: relative; background: white; padding: 0 var(--space-3); font-size: var(--text-xs); color: var(--color-text-muted); }
+.switchText { text-align: center; font-size: var(--text-sm); color: var(--color-text-muted); }
+.switchLink { background: none; border: none; cursor: pointer; font-size: var(--text-sm); color: var(--color-primary-dark); font-weight: var(--fw-semi); text-decoration: underline; }
+.demoHint { text-align: center; font-size: var(--text-xs); color: var(--color-text-light); margin-top: var(--space-4); background: var(--color-bg-soft); padding: var(--space-3); border-radius: var(--radius-md); }
+
+/* Floating decorations */
+.decoration { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.floatEmoji {
+  position: absolute;
+  font-size: 2rem;
+  left: var(--pos, 50%);
+  top: 100%;
+  animation: floatUp 8s linear infinite;
+  animation-delay: var(--delay, 0s);
+  opacity: 0.4;
+}
+@keyframes floatUp {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+  10% { opacity: 0.4; }
+  90% { opacity: 0.4; }
+  100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+}

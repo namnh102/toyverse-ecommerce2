@@ -1,0 +1,258 @@
+/* Navbar.module.css */
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  height: var(--navbar-h);
+  background: rgba(253, 250, 246, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid transparent;
+  transition: all var(--transition-base);
+}
+.scrolled {
+  border-bottom-color: var(--color-border);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.05);
+}
+.inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-shrink: 0;
+  text-decoration: none;
+}
+.logoIcon { font-size: 1.5rem; }
+.logoText  {
+  font-family: var(--font-display);
+  font-size: 1.375rem;
+  font-weight: var(--fw-black);
+  letter-spacing: -0.01em;
+}
+.logoBrand  { color: var(--color-text); }
+.logoAccent { color: var(--color-primary-dark); }
+
+/* Nav */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  flex: 1;
+}
+.navLink {
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: var(--fw-semi);
+  color: var(--color-text-muted);
+  padding: 6px 12px;
+  border-radius: var(--radius-full);
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+.navLink:hover { color: var(--color-text); background: var(--color-primary-light); }
+.navLinkActive  { color: var(--color-text); background: var(--color-primary-light); }
+
+/* Actions */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  margin-left: auto;
+}
+.iconBtn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  border: none;
+  background: transparent;
+  color: var(--color-text);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+.iconBtn:hover { background: var(--color-primary-light); }
+
+/* Search form inline */
+.searchForm {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: white;
+  border-radius: var(--radius-full);
+  padding: 4px 4px 4px 12px;
+  border: 1.5px solid var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(249,168,201,0.15);
+}
+.searchInput {
+  border: none;
+  outline: none;
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  width: 200px;
+  background: transparent;
+  color: var(--color-text);
+}
+
+/* Account menu */
+.accountMenu { position: relative; }
+.userDot {
+  position: absolute;
+  top: 6px; right: 6px;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--color-secondary-dark);
+  border: 2px solid white;
+}
+.dropdown {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  min-width: 200px;
+  background: white;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xl);
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+  display: none;
+  animation: fadeInUp 0.2s ease;
+}
+.accountMenu:hover .dropdown { display: block; }
+.dropdownHeader {
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-surface);
+}
+.dropdownName {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: var(--text-sm);
+  color: var(--color-text);
+}
+.dropdownEmail {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  margin-top: 2px;
+}
+.dropdownItem {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 10px var(--space-4);
+  font-size: var(--text-sm);
+  font-weight: var(--fw-medium);
+  color: var(--color-text);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: background var(--transition-fast);
+  text-decoration: none;
+}
+.dropdownItem:hover { background: var(--color-bg-soft); }
+.dropdownLogout { color: var(--color-error); }
+
+/* Cart */
+.cartBtn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px; height: 44px;
+  border-radius: var(--radius-full);
+  background: var(--color-primary);
+  color: var(--color-text);
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  box-shadow: 0 4px 12px rgba(249,168,201,0.4);
+}
+.cartBtn:hover {
+  background: var(--color-primary-dark);
+  transform: scale(1.05);
+}
+.cartBadge {
+  position: absolute;
+  top: -4px; right: -4px;
+  min-width: 20px; height: 20px;
+  border-radius: var(--radius-full);
+  background: var(--color-text);
+  color: white;
+  font-size: 10px;
+  font-weight: var(--fw-black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+  border: 2px solid var(--color-bg);
+  font-family: var(--font-display);
+}
+
+/* Hamburger — mobile only */
+.hamburger { display: none; }
+
+/* Mobile nav */
+.mobileNav {
+  display: none;
+  position: absolute;
+  top: 100%; left: 0; right: 0;
+  background: rgba(253,250,246,0.98);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--space-4) var(--space-4) var(--space-6);
+  flex-direction: column;
+  gap: var(--space-1);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+}
+.mobileSearch {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: white;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-full);
+  padding: 6px 8px 6px 14px;
+  margin-bottom: var(--space-4);
+}
+.mobileSearch .searchInput { width: 100%; }
+.mobileNavLink {
+  display: block;
+  padding: 10px 16px;
+  border-radius: var(--radius-md);
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  font-weight: var(--fw-semi);
+  color: var(--color-text);
+  text-decoration: none;
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+.mobileNavLink:hover { background: var(--color-primary-light); }
+.mobileDivider {
+  height: 1px;
+  background: var(--color-border);
+  margin: var(--space-2) 0;
+}
+
+@media (max-width: 1024px) {
+  .nav { display: none; }
+  .hamburger { display: flex !important; }
+  .mobileNav { display: flex; }
+  .searchInput { width: 140px; }
+}
+@media (max-width: 480px) {
+  .logoText { display: none; }
+  .actions { gap: 0; }
+}
